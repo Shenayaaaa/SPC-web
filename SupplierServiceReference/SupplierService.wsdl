@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="RegisterSupplier">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="supplierName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contactName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="phoneNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegisterSupplierResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegisterSupplierResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SupplierLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SupplierLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SupplierLoginResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="RegisterSupplierSoapIn">
+    <wsdl:part name="parameters" element="tns:RegisterSupplier" />
+  </wsdl:message>
+  <wsdl:message name="RegisterSupplierSoapOut">
+    <wsdl:part name="parameters" element="tns:RegisterSupplierResponse" />
+  </wsdl:message>
+  <wsdl:message name="SupplierLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:SupplierLogin" />
+  </wsdl:message>
+  <wsdl:message name="SupplierLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:SupplierLoginResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SupplierServiceSoap">
+    <wsdl:operation name="RegisterSupplier">
+      <wsdl:input message="tns:RegisterSupplierSoapIn" />
+      <wsdl:output message="tns:RegisterSupplierSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SupplierLogin">
+      <wsdl:input message="tns:SupplierLoginSoapIn" />
+      <wsdl:output message="tns:SupplierLoginSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SupplierServiceSoap" type="tns:SupplierServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RegisterSupplier">
+      <soap:operation soapAction="http://tempuri.org/RegisterSupplier" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SupplierLogin">
+      <soap:operation soapAction="http://tempuri.org/SupplierLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SupplierServiceSoap12" type="tns:SupplierServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RegisterSupplier">
+      <soap12:operation soapAction="http://tempuri.org/RegisterSupplier" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SupplierLogin">
+      <soap12:operation soapAction="http://tempuri.org/SupplierLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SupplierService">
+    <wsdl:port name="SupplierServiceSoap" binding="tns:SupplierServiceSoap">
+      <soap:address location="https://localhost:44315/SupplierService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SupplierServiceSoap12" binding="tns:SupplierServiceSoap12">
+      <soap12:address location="https://localhost:44315/SupplierService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="AddWarehouse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="warehouseName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="location" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddWarehouseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddWarehouseResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditWarehouse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="warehouseId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="warehouseName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="location" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditWarehouseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EditWarehouseResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteWarehouse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="warehouseId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteWarehouseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteWarehouseResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ShowWarehouses">
+        <s:complexType />
+      </s:element>
+      <s:element name="ShowWarehousesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ShowWarehousesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchWarehouse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="warehouseId" nillable="true" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="warehouseName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchWarehouseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchWarehouseResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddWarehouseSoapIn">
+    <wsdl:part name="parameters" element="tns:AddWarehouse" />
+  </wsdl:message>
+  <wsdl:message name="AddWarehouseSoapOut">
+    <wsdl:part name="parameters" element="tns:AddWarehouseResponse" />
+  </wsdl:message>
+  <wsdl:message name="EditWarehouseSoapIn">
+    <wsdl:part name="parameters" element="tns:EditWarehouse" />
+  </wsdl:message>
+  <wsdl:message name="EditWarehouseSoapOut">
+    <wsdl:part name="parameters" element="tns:EditWarehouseResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteWarehouseSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteWarehouse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteWarehouseSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteWarehouseResponse" />
+  </wsdl:message>
+  <wsdl:message name="ShowWarehousesSoapIn">
+    <wsdl:part name="parameters" element="tns:ShowWarehouses" />
+  </wsdl:message>
+  <wsdl:message name="ShowWarehousesSoapOut">
+    <wsdl:part name="parameters" element="tns:ShowWarehousesResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchWarehouseSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchWarehouse" />
+  </wsdl:message>
+  <wsdl:message name="SearchWarehouseSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchWarehouseResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WarehouseServiceSoap">
+    <wsdl:operation name="AddWarehouse">
+      <wsdl:input message="tns:AddWarehouseSoapIn" />
+      <wsdl:output message="tns:AddWarehouseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditWarehouse">
+      <wsdl:input message="tns:EditWarehouseSoapIn" />
+      <wsdl:output message="tns:EditWarehouseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteWarehouse">
+      <wsdl:input message="tns:DeleteWarehouseSoapIn" />
+      <wsdl:output message="tns:DeleteWarehouseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ShowWarehouses">
+      <wsdl:input message="tns:ShowWarehousesSoapIn" />
+      <wsdl:output message="tns:ShowWarehousesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchWarehouse">
+      <wsdl:input message="tns:SearchWarehouseSoapIn" />
+      <wsdl:output message="tns:SearchWarehouseSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WarehouseServiceSoap" type="tns:WarehouseServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddWarehouse">
+      <soap:operation soapAction="http://tempuri.org/AddWarehouse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditWarehouse">
+      <soap:operation soapAction="http://tempuri.org/EditWarehouse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteWarehouse">
+      <soap:operation soapAction="http://tempuri.org/DeleteWarehouse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowWarehouses">
+      <soap:operation soapAction="http://tempuri.org/ShowWarehouses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchWarehouse">
+      <soap:operation soapAction="http://tempuri.org/SearchWarehouse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WarehouseServiceSoap12" type="tns:WarehouseServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddWarehouse">
+      <soap12:operation soapAction="http://tempuri.org/AddWarehouse" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditWarehouse">
+      <soap12:operation soapAction="http://tempuri.org/EditWarehouse" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteWarehouse">
+      <soap12:operation soapAction="http://tempuri.org/DeleteWarehouse" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowWarehouses">
+      <soap12:operation soapAction="http://tempuri.org/ShowWarehouses" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchWarehouse">
+      <soap12:operation soapAction="http://tempuri.org/SearchWarehouse" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WarehouseService">
+    <wsdl:port name="WarehouseServiceSoap" binding="tns:WarehouseServiceSoap">
+      <soap:address location="https://localhost:44315/WarehouseService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WarehouseServiceSoap12" binding="tns:WarehouseServiceSoap12">
+      <soap12:address location="https://localhost:44315/WarehouseService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
