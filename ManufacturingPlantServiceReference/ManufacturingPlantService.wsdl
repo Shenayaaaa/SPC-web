@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="AddManufacturingPlant">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="plantName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="location" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contactName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="phoneNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddManufacturingPlantResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddManufacturingPlantResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditManufacturingPlant">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="plantId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="plantName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="location" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contactName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="phoneNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditManufacturingPlantResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EditManufacturingPlantResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteManufacturingPlant">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="plantId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteManufacturingPlantResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteManufacturingPlantResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ShowManufacturingPlants">
+        <s:complexType />
+      </s:element>
+      <s:element name="ShowManufacturingPlantsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ShowManufacturingPlantsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchManufacturingPlant">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="plantId" nillable="true" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="plantName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchManufacturingPlantResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchManufacturingPlantResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddManufacturingPlantSoapIn">
+    <wsdl:part name="parameters" element="tns:AddManufacturingPlant" />
+  </wsdl:message>
+  <wsdl:message name="AddManufacturingPlantSoapOut">
+    <wsdl:part name="parameters" element="tns:AddManufacturingPlantResponse" />
+  </wsdl:message>
+  <wsdl:message name="EditManufacturingPlantSoapIn">
+    <wsdl:part name="parameters" element="tns:EditManufacturingPlant" />
+  </wsdl:message>
+  <wsdl:message name="EditManufacturingPlantSoapOut">
+    <wsdl:part name="parameters" element="tns:EditManufacturingPlantResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteManufacturingPlantSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteManufacturingPlant" />
+  </wsdl:message>
+  <wsdl:message name="DeleteManufacturingPlantSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteManufacturingPlantResponse" />
+  </wsdl:message>
+  <wsdl:message name="ShowManufacturingPlantsSoapIn">
+    <wsdl:part name="parameters" element="tns:ShowManufacturingPlants" />
+  </wsdl:message>
+  <wsdl:message name="ShowManufacturingPlantsSoapOut">
+    <wsdl:part name="parameters" element="tns:ShowManufacturingPlantsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchManufacturingPlantSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchManufacturingPlant" />
+  </wsdl:message>
+  <wsdl:message name="SearchManufacturingPlantSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchManufacturingPlantResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ManufacturingPlantServiceSoap">
+    <wsdl:operation name="AddManufacturingPlant">
+      <wsdl:input message="tns:AddManufacturingPlantSoapIn" />
+      <wsdl:output message="tns:AddManufacturingPlantSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditManufacturingPlant">
+      <wsdl:input message="tns:EditManufacturingPlantSoapIn" />
+      <wsdl:output message="tns:EditManufacturingPlantSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteManufacturingPlant">
+      <wsdl:input message="tns:DeleteManufacturingPlantSoapIn" />
+      <wsdl:output message="tns:DeleteManufacturingPlantSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ShowManufacturingPlants">
+      <wsdl:input message="tns:ShowManufacturingPlantsSoapIn" />
+      <wsdl:output message="tns:ShowManufacturingPlantsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchManufacturingPlant">
+      <wsdl:input message="tns:SearchManufacturingPlantSoapIn" />
+      <wsdl:output message="tns:SearchManufacturingPlantSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ManufacturingPlantServiceSoap" type="tns:ManufacturingPlantServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddManufacturingPlant">
+      <soap:operation soapAction="http://tempuri.org/AddManufacturingPlant" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditManufacturingPlant">
+      <soap:operation soapAction="http://tempuri.org/EditManufacturingPlant" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteManufacturingPlant">
+      <soap:operation soapAction="http://tempuri.org/DeleteManufacturingPlant" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowManufacturingPlants">
+      <soap:operation soapAction="http://tempuri.org/ShowManufacturingPlants" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchManufacturingPlant">
+      <soap:operation soapAction="http://tempuri.org/SearchManufacturingPlant" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ManufacturingPlantServiceSoap12" type="tns:ManufacturingPlantServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddManufacturingPlant">
+      <soap12:operation soapAction="http://tempuri.org/AddManufacturingPlant" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditManufacturingPlant">
+      <soap12:operation soapAction="http://tempuri.org/EditManufacturingPlant" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteManufacturingPlant">
+      <soap12:operation soapAction="http://tempuri.org/DeleteManufacturingPlant" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowManufacturingPlants">
+      <soap12:operation soapAction="http://tempuri.org/ShowManufacturingPlants" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchManufacturingPlant">
+      <soap12:operation soapAction="http://tempuri.org/SearchManufacturingPlant" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ManufacturingPlantService">
+    <wsdl:port name="ManufacturingPlantServiceSoap" binding="tns:ManufacturingPlantServiceSoap">
+      <soap:address location="https://localhost:44315/ManufacturingPlantService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ManufacturingPlantServiceSoap12" binding="tns:ManufacturingPlantServiceSoap12">
+      <soap12:address location="https://localhost:44315/ManufacturingPlantService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
