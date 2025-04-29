@@ -1,2 +1,2 @@
 # SPC-web
-Successfully developed a Service-Oriented Architecture (SOA) solution for the State Pharmaceutical Corporation (SPC) using .NET API technologies. 
+Successfully developed a Service-Oriented Architecture (SOA) solution for the State Pharmaceutical Corporation (SPC) using .NET API technologies. Key features include supplier registration, manufacturing plant stock updates, warehouse management, and pharmacy drug ordering through API integrations. The solution enabled a seamless connection between web-based, Windows-based, and third-party pharmacy systems to enhance pharmaceutical distribution efficiency.
